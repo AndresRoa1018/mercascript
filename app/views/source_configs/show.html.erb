@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Datasource:</strong>
+  <%= @source_config.datasource %>
+</p>
+
+<p>
+  <strong>Login:</strong>
+  <%= @source_config.login %>
+</p>
+
+<p>
+  <strong>Password:</strong>
+  <%= @source_config.password %>
+</p>
+
+<p>
+  <strong>Domain:</strong>
+  <%= @source_config.domain %>
+</p>
+
+<p>
+  <strong>Active:</strong>
+  <%= @source_config.active %>
+</p>
+
+<p>
+  <strong>Data:</strong>
+  <%= @source_config.data %>
+</p>
+
+<%= link_to 'Edit', edit_source_config_path(@source_config) %> |
+<%= link_to 'Back', source_configs_path %>

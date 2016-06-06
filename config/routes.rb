@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :source_configs
+  resources :products
   resources :searches
   resources :result_products
   resources :photos
