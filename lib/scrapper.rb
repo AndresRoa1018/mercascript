@@ -13,15 +13,22 @@ class Scrapper
       #binding.pry
       page.form.field.value = search
       result_page = page.form.submit
-      result_page.search("#searchResults li").each do |result|
+      result_page.search("#searchResults > li").each do |result|
+        puts " * parsing element"
         rp = ResultProduct.new
-        rp.name = result.at("h2 a").text
-        rp.price = result.at(".price-info").text
-        rp.url = result.at(".item-url").text
-        rp.sold = result.at(".extra-info-sold").text
-        rp.type = result.at(".extra-info-condition").text
-        rp.created_at = result.Time.now
-        rp.source = result.at(".item-url").text
+        #binding.pry
+        begin
+          rp.name = result.at("h2 a").text
+          rp.price = result.at(".price-info").text
+          rp.url = result.at("h2 a").attr :href
+          rp.sold = result.at(".extra-info-sold").try :text
+          rp.is_new = result.at(".extra-info-condition").text == "Articulo Nuevo"
+          rp.source = "MercadoLibre"
+          rp.save
+        rescue NoMethodError => e
+          binding.pry
+          puts "something"
+        end
       end
   end
 

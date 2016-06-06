@@ -5,7 +5,7 @@ class CreateSourceConfigs < ActiveRecord::Migration
       t.string :login
       t.string :password
       t.string :domain
-      t.bolean :active
+      t.boolean :active
       t.text :data
 
       t.timestamps null: false
