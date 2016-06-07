@@ -13,7 +13,8 @@
 
   <div class="field">
     <%= f.label :datasource %><br>
-    <%= f.text_field :datasource %>
+    <%= f.select :datasource, Datasource.list_sources.map{|s| [s,s]}  %>
+  
   </div>
   <div class="field">
     <%= f.label :login %><br>

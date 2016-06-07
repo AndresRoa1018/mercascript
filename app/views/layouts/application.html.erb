@@ -5,9 +5,21 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
+
 </head>
 <body>
+ 
+<ul>
+   <li><h1>MercaScript</h1></li>
+   <li><a href="/">Menu</a></li> 
+   <li><a href="/products">Products</a></li>
+   <li><a href="/result_products">Result Products</a></li>
+   <li><a href="/source_configs">Source Configurations</a></li>
+   <li><a href="/searches">Searches</a></li>
+   <li><a href="/photos">Photos</a></li> 
 
+  </ul>
 <%= yield %>
 
 </body>

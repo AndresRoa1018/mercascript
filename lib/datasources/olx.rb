@@ -1,4 +1,4 @@
-class MercadoLibre < Datasource
+class Olx < Datasource
   def publish
   end
 
@@ -38,6 +38,4 @@ class MercadoLibre < Datasource
       end
   end
 end
-
-
 
