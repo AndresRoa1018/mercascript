@@ -4,11 +4,11 @@ namespace :mercascript do
   desc "refreshes results from all searches :D"
   task refresh_searches: :environment do
     Search.all.each do |search|
-      merca = Mercadolibre.new
-      scrap.fetch_results s search.name
-
-      puts "hola #{search}"
-
+      puts "searching #{search.name}"
+      SourceConfig.where(active: true).each do |sc|
+        puts " .. #{sc.datasource}"
+        sc.fetch_results search.name
+      end
     end
   end
 end

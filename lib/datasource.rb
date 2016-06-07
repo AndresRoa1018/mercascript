@@ -1,4 +1,9 @@
 class Datasource
+  
+  def initialize(source_config)
+    @source_config = source_config
+  end
+
   def fetch_all
   
   end

@@ -1,10 +1,11 @@
 class MercadoLibre < Datasource
+  
   def publish
   end
 
   def fetch_results(search)
       mecha = Mechanize.new
-      url = "http://www.mercadolibre.com.pe/"
+      url = "http://www.mercadolibre.com#{@source_config.domain}/"
       page = mecha.get(url)
       #binding.pry
       page.form.field.value = search
