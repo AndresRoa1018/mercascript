@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160606220219) do
+ActiveRecord::Schema.define(version: 20160610164929) do
 
   create_table "photos", force: :cascade do |t|
     t.integer  "order"
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 20160606220219) do
     t.integer  "search_id"
     t.string   "source"
     t.string   "source_id"
+    t.string   "currency"
   end
 
   create_table "searches", force: :cascade do |t|

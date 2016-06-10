@@ -97,6 +97,8 @@ GEM
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
     ntlm-http (0.1.1)
+    prism (0.1.0)
+      nokogiri
     pry (0.10.3)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -183,6 +185,7 @@ DEPENDENCIES
   jquery-rails
   mechanize
   nokogiri
+  prism
   pry
   rails (= 4.2.6)
   sass-rails (~> 5.0)
@@ -195,4 +198,4 @@ DEPENDENCIES
   whenever
 
 BUNDLED WITH
-   1.12.4
+   1.12.5

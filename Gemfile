@@ -49,3 +49,4 @@ group :development do
   gem 'spring'
 end
 
+gem "paperclip", "~> 5.0.0.beta1"
