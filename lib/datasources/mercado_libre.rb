@@ -9,7 +9,7 @@ class MercadoLibre < Datasource
       url = "http://www.mercadolibre.com#{@source_config.domain}/"
       puts url
       page = mecha.get(url)
-      page.form.field.value = search
+      page.form.field.value = search.name
 
       result_page = page.form.submit
       
@@ -24,7 +24,18 @@ class MercadoLibre < Datasource
         product_page = mecha.click result.at("h2.list-view-item-title a")
         puts " *   #{search}  parsing element #{product_page.uri}"
         seller = product_page.links.map(&:href).select{|x| x && x.include?("perfil")}.first.split('/').last rescue nil
+        images_result = result.at("div.carousel ul li img").attr :src
 
+        begin
+          product_images = product_page.at("div.product-gallery-container label img").map {|x| x.attr :scr}
+        rescue
+          binding.pry
+          puts "222"
+        end
+        
+         
+         
+         
         source_id = result.attr(:id)
 
         
@@ -34,8 +45,9 @@ class MercadoLibre < Datasource
           rp = ResultProduct.new
           
           begin
-            metas = Hash[product_page.search('meta[itemprop]').map{|m| [m[:itemprop], m[:content]]}]
 
+            metas = Hash[product_page.search('meta[itemprop]').map{|m| [m[:itemprop], m[:content]]}]
+            rp.search = search
             rp.name = result.at("h2 a").text
             rp.price = metas["price"]
             rp.currency = metas["priceCurrency"]
@@ -46,6 +58,8 @@ class MercadoLibre < Datasource
             rp.source_id = source_id
             rp.nick_seller = seller
             rp.description_html = product_page.at("section.item-description, div.vip-description-container, #itemDescription").try :to_html 
+            rp.image_url = images_result
+            rp.#### = images_show.map{|x|  }
           rescue NoMethodError => e
             binding.pry
             puts "NoMethodError: #{e.message}"
@@ -54,7 +68,13 @@ class MercadoLibre < Datasource
             puts "otro error: #{e.message}"
           ensure
             rp.save
-          end  
+          
+
+          product_images.each do |image|
+            rp.photos.create(name: image)
+          end
+          end
+
           puts "EUREKAAAAAA!!! FUNCIONA"
         end
       end

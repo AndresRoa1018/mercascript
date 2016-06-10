@@ -11,16 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160610164929) do
+ActiveRecord::Schema.define(version: 20160610221537) do
 
   create_table "photos", force: :cascade do |t|
     t.integer  "order"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.string   "url"
-    t.string   "string"
     t.integer  "result_product_id"
     t.integer  "search_id"
+    t.string   "name_file_name"
+    t.string   "name_content_type"
+    t.integer  "name_file_size"
+    t.datetime "name_updated_at"
+    t.string   "string_file_name"
+    t.string   "string_content_type"
+    t.integer  "string_file_size"
+    t.datetime "string_updated_at"
   end
 
   add_index "photos", ["result_product_id"], name: "index_photos_on_result_product_id"
@@ -57,6 +64,7 @@ ActiveRecord::Schema.define(version: 20160610164929) do
     t.string   "source"
     t.string   "source_id"
     t.string   "currency"
+    t.text     "image_url"
   end
 
   create_table "searches", force: :cascade do |t|

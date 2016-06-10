@@ -7,7 +7,7 @@ namespace :mercascript do
       puts "searching #{search.name}"
       SourceConfig.where(active: true).each do |sc|
         puts " .. #{sc.datasource}"
-        sc.fetch_results search.name
+        sc.fetch_results search
       end
     end
   end
