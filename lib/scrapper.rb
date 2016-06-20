@@ -2,6 +2,7 @@ require 'rubygems'
 require 'open-uri'
 require 'mechanize'
 require 'pry'
+require 'watir'
 
 class Scrapper 
 

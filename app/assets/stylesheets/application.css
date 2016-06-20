@@ -48,7 +48,13 @@ ul li a:hover {
 
 ul h1 {
     padding-left: 12px;
-    margin-top: 14px;
+    margin-top: 0px;
 
 
 }
+
+/*
+ *= require froala_editor.min.css
+ *= require froala_style.min.css
+ *= require font-awesome
+ */

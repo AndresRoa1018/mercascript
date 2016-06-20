@@ -9,17 +9,32 @@
 
 </head>
 <body>
- 
+
 <ul>
-   <li><h1>MercaScript</h1></li>
+   
+   <li><h1><a href="/">MercaScript</a></h1></li>
+
+   <% if user_signed_in? %>
+   
    <li><a href="/">Menu</a></li> 
    <li><a href="/products">Products</a></li>
    <li><a href="/result_products">Result Products</a></li>
    <li><a href="/source_configs">Source Configurations</a></li>
    <li><a href="/searches">Searches</a></li>
+   <li><a href="/users">Users</a></li> 
    <li><a href="/photos">Photos</a></li> 
+   <li>
+  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
+  </li>
+  <% end %>
 
-  </ul>
+</ul>
+
+
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+
+
 <%= yield %>
 
 </body>

@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+    <th>Url</th>
       <th>Order</th>
       <th colspan="3"></th>
     </tr>
@@ -13,6 +14,8 @@
   <tbody>
     <% @photos.each do |photo| %>
       <tr>
+        <td><%= image_tag photo.url, height: 300
+         %></td>
         <td><%= photo.order %></td>
         <td><%= link_to 'Show', photo %></td>
         <td><%= link_to 'Edit', edit_photo_path(photo) %></td>

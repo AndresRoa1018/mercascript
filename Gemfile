@@ -16,8 +16,11 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'nokogiri'
 gem 'carrierwave'
 gem 'mechanize'
-gem 'pry'
+gem 'devise'
+gem 'mysql2'
 gem 'whenever', require: false
+gem 'watir', '~>4.0'
+gem 'wysiwyg-rails'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -38,12 +41,14 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
+  gem 'pry-byebug'
+  gem 'jazz_hands', github: 'nixme/jazz_hands', branch: 'bring-your-own-debugger'
 end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
+
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
